@@ -1,0 +1,14 @@
+init corr code
+read in the athletes dataset
+
+ath <- read.csv("C:\\student\\athletes.csv", header=T)
+
+par(mfrow=c(2,1))
+ath_f <- subset(ath, Sex==1)
+plot(ath_f$Wt, ath_f$BMI, 
+xlab="Weight", ylab="BMI", main="F Scatterplot")
+
+ath_m <- subset(ath, Sex==0)
+plot(ath_m$Wt, ath_m$BMI, 
+xlab="Weight", ylab="BMI", main="M Scatterplot")
+Last modified: Wednesday, 24 October 2018, 7:21 PM
