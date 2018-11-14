@@ -1,0 +1,40 @@
+
+HypTest2TT <- function(s, mu, xbar, n, alpha)
+# Calculate T
+T <- (xbar-mu)/ s/sqrt(n)
+
+# Check if sample size > 30, use qt, otherwise use qnorm
+if (n<30) 
+   t.half.alpha <- qt(1-alpha/2, df=n-1)
+   qt.alpha <- c(-t.half.alpha, t.half.alpha)
+
+   # if outside variance value reject, otherwise accept
+   if (T < -t.half.alpha) { 
+       print("Reject") }
+   if (T > t.half.alpha) {
+        print("Reject") }
+   if (T >= -t.half.alpha) {
+        print("Accept")}
+   if (T <= t.half.alpha) 
+       print("Accept")
+  
+  
+# use qnorm if sample size > 30
+if (n>30)
+   t.half.alpha <- qnorm(1-alpha/2, df=n-1)
+   qnorm.alpha <- c(-t.half.alpha, t.half.alpha)
+
+   # if outside variance value reject, otherwise accept
+   if (T < -t.half.alpha) { 
+       print("Reject") }
+   if (T > t.half.alpha) {
+        print("Reject") }
+   if (T >= -t.half.alpha) {
+        print("Accept")}
+   if (T <= t.half.alpha) 
+       print("Accept")
+
+   
+
+   
+   
