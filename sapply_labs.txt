@@ -1,0 +1,52 @@
+
+sapply is an iterator
+10 elements containing the value 20
+run the print function to print output to screen
+> sapply(rep(20,10),FUN=print)
+
+
+hello_world <- function(x){
+ print("Hello World")
+ print(x)
+ }
+ 
+
+my_func <- function(x){
+  print(x)
+} 
+ 
+sapply(rep(20,10), FUN=my_func)
+  
+  
+-------------------------------------
+
+runif(n, min = 0, max = 1)
+
+-------------------------------------
+# Use the runif function for uniform distribution of 1..20
+
+my_func <- function(x){
+  runif(x, min = 1, max = 20)
+  #print(x)
+} 
+ 
+sapply(rep(20,10), FUN=my_func)
+
+-------------------------------------
+
+# Compute the mean of numbers
+# ?mean
+
+my_func <- function(x){
+  mean(runif(x, min = 1, max = 20))
+} 
+
+> sapply(rep(20,10), FUN=my_func)
+ [1]  9.371903  9.988379 12.384955  8.719792 10.570986 11.303653  8.616926  9.825533 11.549576 12.070904
+ 
+ 
+  
+-------------------------------------
+
+
+

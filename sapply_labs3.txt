@@ -1,0 +1,45 @@
+
+
+library(RSQLite) 
+
+# connect to the database and keep the connection in conSQLite
+
+# connect once 
+
+conSQLite <- dbConnect(RSQLite::SQLite(), dbname="c:\\documents\\athletes2.sqlite")
+
+# execute your query
+
+resultsHandle <- dbSendQuery(conSQLite, "select Ht from athletes_table;")
+
+# fetch numRows in the query
+numRows <- 20
+d <- fetch(resultsHandle, n=numRows)
+
+sapply(rep(20,10), FUN=my_func)
+
+---------------------------------------------------
+
+## Outside the loop
+conSQLite <- dbConnect(RSQLite::SQLite(), dbname="c:\\student\\athletes2.sqlite")
+resultsHandle <- dbSendQuery(conSQLite, "select Ht from athletes_table;")
+
+
+## Inside the function
+getAverageHeightForChunk <- function(numRows){
+        		d <- fetch(resultsHandle, n=numRows)
+		mean(d$Ht)
+		}
+
+## without mean, sapply prints mean 10 times.
+## mean prints 1 result
+		
+mean(sapply(rep(20,10), getAverageHeightForChunk))
+
+
+	
+
+
+
+
+

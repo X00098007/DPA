@@ -1,0 +1,20 @@
+# load the database driver library
+
+# only load once
+
+library(RSQLite) 
+
+# connect to the database and keep the connection in conSQLite
+
+# connect once 
+
+conSQLite <- dbConnect(RSQLite::SQLite(), dbname="c:\\documents\\athletes2.sqlite")
+
+# execute your query
+
+resultsHandle <- dbSendQuery(conSQLite, "select Ht from athletes_table;")
+
+# fetch numRows in the query
+numRows <- 20
+d <- fetch(resultsHandle, n=numRows)
+
